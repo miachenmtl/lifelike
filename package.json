@@ -1,0 +1,14 @@
+{
+  "name": "lifelike",
+  "version": "0.0.0",
+  "description": "Implementation of Conway's Game of Life with customizable rulesets",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter"
+  },
+  "author": "Mia Chen",
+  "license": "ISC"
+}
