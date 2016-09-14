@@ -25,12 +25,12 @@ function drawGridLines() {
 };
 
 function processClickOnCanvas(lifeAtRowCol, event) {
-  var xyCoords = getCanvasCoordinates(event);
-  var r, c, cellX, cellY;
-  var rcCoords = isOnCell(xyCoords[0], xyCoords[1]);
+  var xyCoords = getCanvasCoordinates(event); //converts coords relative to window to coords rel to canvas
+  var r, c, cellX, cellY; //row and column of cell clicked on, canvas xy coords of top left cell
+  var rcCoords = isOnCell(xyCoords);
   console.log("The user clicked on " + xyCoords[0] + ", " + xyCoords[1]);
   console.log("Row and column are: " + rcCoords);
-  if (rcCoords[0] == -1 && rcCoords[1] == -1) {
+  if (rcCoords[0] == -1 && rcCoords[1] == -1) { //JS does not like to compare arrays!
     console.log("User clicked on gridline.")
     return;
   }
@@ -43,12 +43,6 @@ function processClickOnCanvas(lifeAtRowCol, event) {
     else {
       giveCellLife(lifeAtRowCol, r, c);
     }
-    /*var cellX = 10 * c + 1;
-    var cellY = 10 * r + 1;
-    var canvas = document.getElementById("fieldOfLife");
-    var c = canvas.getContext("2d");
-    c.fillStyle = "#00FF00";
-    c.fillRect(cellX, cellY, 9, 9); //draw 9 * 9 rect*/
   }
 };
 
@@ -65,7 +59,7 @@ function isOnCell(x, y) { //returns row and column number user clicks on, or [-1
   }
 };
 
-function getCanvasCoordinates(event) {
+function getCanvasCoordinates(event) { //converts window xy coords to canvas xy coords
   canvas = document.getElementById("fieldOfLife");
   rect = canvas.getBoundingClientRect();
   var x = parseInt(event.clientX - rect.left) - 2;
