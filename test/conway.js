@@ -34,7 +34,6 @@ describe("Kill Cell", function() {
     expect(newState[5][6]).to.equal(false);
   });
 });
-<<<<<<< HEAD
 
 describe("Count Neighbourhood", function() {
   var count = [];
@@ -141,5 +140,3 @@ describe("Count Neighbourhood dblchk", function() {
     expect(count[16]).to.equal(3);
   });
 });
-=======
->>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
