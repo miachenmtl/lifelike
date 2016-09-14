@@ -27,11 +27,7 @@ function drawGridLines() {
 function processClickOnCanvas(lifeAtRowCol, event) {
   var xyCoords = getCanvasCoordinates(event); //converts coords relative to window to coords rel to canvas
   var r, c, cellX, cellY; //row and column of cell clicked on, canvas xy coords of top left cell
-<<<<<<< HEAD
   var rcCoords = isOnCell(xyCoords[0], xyCoords[1]);
-=======
-  var rcCoords = isOnCell(xyCoords);
->>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
   console.log("The user clicked on " + xyCoords[0] + ", " + xyCoords[1]);
   console.log("Row and column are: " + rcCoords);
   if (rcCoords[0] == -1 && rcCoords[1] == -1) { //JS does not like to compare arrays!
@@ -95,7 +91,6 @@ function killCell(lifeAtRowCol, i, j) {
   c.fillRect(cellX, cellY, 9, 9);
   return lifeAtRowCol;
 }
-<<<<<<< HEAD
 
 function countNeighbourhood(lifeAtRowCol, i, j) {
   var count = 0;
@@ -188,7 +183,4 @@ function iterateNextGen(lifeAtRowCol) {
     }
   }
   populateNextGen(lifeAtRowCol, nextGenState);
-
 }
-=======
->>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
