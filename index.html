@@ -2,17 +2,29 @@
 <html>
 <head>
 <title>lifelike</title>
-<link rel="stylesheet" type="text/css" href="lifelike.css">
+<link rel="stylesheet" type="test/css" href="mocha.css"  />
+<link rel="stylesheet" type="text/css" href="lifelike.css" />
 </head>
 <body onload="drawGridLines()">
-
 <h1>Lifelike: Conway's Game of Life and Variants</h1>
 <p>Click cells to switch from alive to dead and vice versa. Step advances one iteration; run/stop advances at two iterations per second.</p>
-<canvas id="fieldOfLife" width="601" height="373">Your browser does not support the HTML5 canvas tag.</canvas>
+<div><canvas id="fieldOfLife" width="601" height="371" onclick="processClickOnCanvas(lifeAtRowCol, event)" onmousemove="getCanvasCoordinates(event)">Your browser does not support the HTML5 canvas tag.</canvas></div>
 <input type="button" value="Run">
 <input type="button" value="Step">
 <input type="button" value="Reset">
-
+<p id="xy"></p>
+<div id="mocha"></div>
+<!--<script src="mocha.js"></script>
+<script src="chai.js"></script>
+<script>
+  mocha.ui("bdd");
+  mocha.reporter("html");
+  var expect = chai.expect;
+</script>
+<script src="tests.js"></script>
+<script>
+  mocha.run();
+</script>-->
 <script src="lifelike.js"></script>
 
 </body>
