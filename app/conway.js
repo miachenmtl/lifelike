@@ -35,7 +35,7 @@ exports.killCell = function(lifeAtRowCol, i, j) {
   lifeAtRowCol[i][j] = false;
   cellX = 10 * j + 1;
   cellY = 10 * i + 1;
-<<<<<<< HEAD
+  // don't know how to refer to canvas while unit testing
   return lifeAtRowCol;
 }
 
@@ -44,7 +44,6 @@ exports.countNeighbourhood = function(lifeAtRowCol, i, j) {
   if (i - 1 >= 0 && j - 1 >= 0) {
     if (lifeAtRowCol[i - 1][j - 1]) {
       count++;
-      console.log("tripped at " + i + ", " + j);
     }
   }
   if (i - 1 >= 0) {
@@ -84,11 +83,3 @@ exports.countNeighbourhood = function(lifeAtRowCol, i, j) {
   }
   return count;
 }
-=======
-  /*var canvas = document.getElementById("fieldOfLife");
-  var c = canvas.getContext("2d");
-  c.fillStyle = "#FFFFFF";
-  c.fillRect(cellX, cellY, 9, 9);*/
-  return lifeAtRowCol;
-}
->>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
