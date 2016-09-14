@@ -8,17 +8,14 @@
 <body onload="drawGridLines()">
 <h1>Lifelike: Conway's Game of Life and Variants</h1>
 <p>Click cells to switch from alive to dead and vice versa. Step advances one iteration; run/stop advances at two iterations per second.</p>
-<div><canvas id="fieldOfLife" width="601" height="371" onclick="processClickOnCanvas(lifeAtRowCol, event)" onmousemove="getCanvasCoordinates(event)">Your browser does not support the HTML5 canvas tag.</canvas></div>
+<canvas id="fieldOfLife" width="601" height="371" onclick="processClickOnCanvas(lifeAtRowCol, event)" onmousemove="getCanvasCoordinates(event)">Your browser does not support the HTML5 canvas tag.</canvas>
 <input type="button" value="Run">
-<<<<<<< HEAD
 <input type="button" value="Step" onclick="iterateNextGen(lifeAtRowCol)">
-=======
 <input type="button" value="Step">
->>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
 <input type="button" value="Reset">
-<p id="xy"></p>
+<!--<p id="xy"></p> //how do you do testing for browser events
 <div id="mocha"></div>
-<!--<script src="mocha.js"></script>
+<script src="mocha.js"></script>
 <script src="chai.js"></script>
 <script>
   mocha.ui("bdd");
