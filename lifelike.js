@@ -27,7 +27,11 @@ function drawGridLines() {
 function processClickOnCanvas(lifeAtRowCol, event) {
   var xyCoords = getCanvasCoordinates(event); //converts coords relative to window to coords rel to canvas
   var r, c, cellX, cellY; //row and column of cell clicked on, canvas xy coords of top left cell
+<<<<<<< HEAD
+  var rcCoords = isOnCell(xyCoords[0], xyCoords[1]);
+=======
   var rcCoords = isOnCell(xyCoords);
+>>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
   console.log("The user clicked on " + xyCoords[0] + ", " + xyCoords[1]);
   console.log("Row and column are: " + rcCoords);
   if (rcCoords[0] == -1 && rcCoords[1] == -1) { //JS does not like to compare arrays!
@@ -91,3 +95,100 @@ function killCell(lifeAtRowCol, i, j) {
   c.fillRect(cellX, cellY, 9, 9);
   return lifeAtRowCol;
 }
+<<<<<<< HEAD
+
+function countNeighbourhood(lifeAtRowCol, i, j) {
+  var count = 0;
+  if (i - 1 >= 0 && j - 1 >= 0) {
+    if (lifeAtRowCol[i - 1][j - 1]) {
+      count++;
+    }
+  }
+  if (i - 1 >= 0) {
+    if (lifeAtRowCol[i - 1][j]) {
+      count++;
+    }
+  }
+  if (i - 1 >= 0 && j + 1 < 60) {
+    if (lifeAtRowCol[i - 1][j + 1]) {
+      count++;
+    }
+  }
+  if (j - 1 >= 0) {
+    if (lifeAtRowCol[i][j - 1]) {
+      count++;
+    }
+  }
+  if (j + 1 < 60) {
+    if (lifeAtRowCol[i][j + 1]) {
+      count++;
+    }
+  }
+  if (i + 1 < 37 && j - 1 >= 0) {
+    if (lifeAtRowCol[i + 1][j - 1]) {
+      count++;
+    }
+  }
+  if (i + 1 < 37) {
+    if (lifeAtRowCol[i + 1][j]) {
+      count++;
+    }
+  }
+  if (i + 1 < 37 && j + 1 < 60) {
+    if (lifeAtRowCol[i + 1][j + 1]) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function populateNextGen(lifeAtRowCol, nextGenState) {
+  for (i = 0; i < 37; i++) { //populate next generation
+    for (j = 0; j < 60; j++) {
+      if (nextGenState[i][j]) {
+        giveCellLife(lifeAtRowCol, i, j);
+      }
+      else {
+        killCell(lifeAtRowCol, i, j);
+      }
+    }
+  }
+}
+
+function iterateNextGen(lifeAtRowCol) {
+  var nextGenState = [];
+  for (i = 0; i < 37; i++) {
+    nextGenState[i] = [];
+    for (j = 0; j < 60; j++) {
+      nextGenState[i][j] = false;
+    }
+  }
+  var count;
+  var birthRuleset = [false, false, false, true, false, false, false, false, false];
+  var surviveRuleset = [false, false, true, true, false, false, false, false, false];
+  for (i = 0; i < 37; i++) {
+    for (j = 0; j < 60; j++) {
+      count = countNeighbourhood(lifeAtRowCol, i, j);
+      if (lifeAtRowCol[i][j]) { //implement survive ruleset
+        if (surviveRuleset[count]) {
+          nextGenState[i][j] = true;
+        }
+        else {
+          nextGenState[i][j] = false;
+        }
+      }
+      else { //implement birth ruleset
+        if (birthRuleset[count]) {
+          nextGenState[i][j] = true;
+        }
+        else {
+          nextGenState[i][j] = false;
+        }
+      }
+    }
+  }
+  populateNextGen(lifeAtRowCol, nextGenState);
+
+}
+=======
+>>>>>>> a24a649dcb5781d7e0c64a68c1a8170f3d5ab5e3
