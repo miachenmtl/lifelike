@@ -5,6 +5,7 @@ for (i = 0; i < 37; i++) {
     lifeAtRowCol[i][j] = false;
   }
 }
+var intervalID;
 
 function drawGridLines() {
   var canvas = document.getElementById("fieldOfLife");
@@ -158,6 +159,20 @@ function populateNextGen(lifeAtRowCol, nextGenState) {
   }
 }
 
+function runOrStop(lifeAtRowCol) {
+  var text = document.getElementById("runStop").value;
+  if (text == "Run") {
+    intervalID = window.setInterval(function() {iterateNextGen(lifeAtRowCol);}, 500);
+    document.getElementById("runStop").value = "Stop";
+    console.log("Run");
+  }
+  else {
+    window.clearInterval(intervalID);
+    document.getElementById("runStop").value = "Run";
+    console.log("Stop");
+  }
+}
+
 function iterateNextGen(lifeAtRowCol) {
   var nextGenState = [];
   for (i = 0; i < 37; i++) {
@@ -169,6 +184,7 @@ function iterateNextGen(lifeAtRowCol) {
   var count;
   var birthRuleset = [false, false, false, true, false, false, false, false, false];
   var surviveRuleset = [false, false, true, true, false, false, false, false, false];
+  console.log("iterating next generation");
   for (i = 0; i < 37; i++) {
     for (j = 0; j < 60; j++) {
       count = countNeighbourhood(lifeAtRowCol, i, j);
