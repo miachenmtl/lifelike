@@ -91,6 +91,15 @@ function killCell(lifeAtRowCol, i, j) {
   return lifeAtRowCol;
 }
 
+function killEverything(lifeAtRowCol) {
+  for (i = 0; i < 37; i++) {
+    for (j = 0; j < 60; j++) {
+      killCell(lifeAtRowCol, i, j);
+    }
+  }
+}
+
+
 function countNeighbourhood(lifeAtRowCol, i, j) {
   var count = 0;
   if (i - 1 >= 0 && j - 1 >= 0) {
