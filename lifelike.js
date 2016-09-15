@@ -7,7 +7,6 @@ for (i = 0; i < 37; i++) {
 }
 
 function drawGridLines() {
-  console.log("I want to draw grid lines");
   var canvas = document.getElementById("fieldOfLife");
   var c = canvas.getContext("2d");
   c.lineWidth = 1;
@@ -26,7 +25,7 @@ function drawGridLines() {
 
 function processClickOnCanvas(lifeAtRowCol, event) {
   var xyCoords = getCanvasCoordinates(event); //converts coords relative to window to coords rel to canvas
-  var r, c, cellX, cellY; //row and column of cell clicked on, canvas xy coords of top left cell
+  var r, c; //row and column of cell clicked on, canvas xy coords of top left cell
   var rcCoords = isOnCell(xyCoords[0], xyCoords[1]);
   console.log("The user clicked on " + xyCoords[0] + ", " + xyCoords[1]);
   console.log("Row and column are: " + rcCoords);
@@ -64,7 +63,7 @@ function getCanvasCoordinates(event) { //converts window xy coords to canvas xy 
   rect = canvas.getBoundingClientRect();
   var x = parseInt(event.clientX - rect.left) - 2;
   var y = parseInt(event.clientY - rect.top) - 2;
-  document.getElementById("xy").innerHTML = "Coordinates: " + x + ", " + y;
+  //document.getElementById("xy").innerHTML = "Coordinates: " + x + ", " + y;
   return [x, y];
 }
 
