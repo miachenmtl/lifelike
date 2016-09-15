@@ -173,6 +173,34 @@ function runOrStop(lifeAtRowCol) {
   }
 }
 
+function getBirthRuleset() {
+  var birthRuleset = [];
+  birthRuleset[0] = document.getElementById("B0").checked;
+  birthRuleset[1] = document.getElementById("B1").checked;
+  birthRuleset[2] = document.getElementById("B2").checked;
+  birthRuleset[3] = document.getElementById("B3").checked;
+  birthRuleset[4] = document.getElementById("B4").checked;
+  birthRuleset[5] = document.getElementById("B5").checked;
+  birthRuleset[6] = document.getElementById("B6").checked;
+  birthRuleset[7] = document.getElementById("B7").checked;
+  birthRuleset[8] = document.getElementById("B8").checked;
+  return birthRuleset;
+}
+
+function getSurviveRuleset() {
+  var surviveRuleset = []
+  surviveRuleset[0] = document.getElementById("S0").checked;
+  surviveRuleset[1] = document.getElementById("S1").checked;
+  surviveRuleset[2] = document.getElementById("S2").checked;
+  surviveRuleset[3] = document.getElementById("S3").checked;
+  surviveRuleset[4] = document.getElementById("S4").checked;
+  surviveRuleset[5] = document.getElementById("S5").checked;
+  surviveRuleset[6] = document.getElementById("S6").checked;
+  surviveRuleset[7] = document.getElementById("S7").checked;
+  surviveRuleset[8] = document.getElementById("S8").checked;
+  return surviveRuleset;
+}
+
 function iterateNextGen(lifeAtRowCol) {
   var nextGenState = [];
   for (i = 0; i < 37; i++) {
@@ -182,8 +210,8 @@ function iterateNextGen(lifeAtRowCol) {
     }
   }
   var count;
-  var birthRuleset = [false, false, false, true, false, false, false, false, false];
-  var surviveRuleset = [false, false, true, true, false, false, false, false, false];
+  var birthRuleset = getBirthRuleset();
+  var surviveRuleset = getSurviveRuleset();
   console.log("iterating next generation");
   for (i = 0; i < 37; i++) {
     for (j = 0; j < 60; j++) {
