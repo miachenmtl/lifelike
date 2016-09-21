@@ -21,7 +21,7 @@ var logic = {
     var n;
     for (m = -1; m <= 1; m++) {
       for (n = -1; n <= 1; n++) {
-        if (logic.isValidNeighbor(i, j, i + m, j + n) && lifeAtRowCol[i + m][j + n]) {
+        if (this.isValidNeighbor(i, j, i + m, j + n) && lifeAtRowCol[i + m][j + n]) {
           count++;
         }
       }
